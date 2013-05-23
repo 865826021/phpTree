@@ -46,7 +46,7 @@ class Tree
     {
         $res = array();
         foreach ($this->data as $node) {
-            if ($node[1] === $id) {
+            if ($node[1] == $id) {
                 $res[] = $node;
             }
         }
