@@ -1,0 +1,23 @@
+/**
+ *  Tree v1.0 CSS
+ *  http://mohsenkhahani.ir/phpTree
+ */
+
+.tree {width:300px; padding:10px;}
+.tree var {display:none;}
+.tree ul {list-style:none; margin:0; padding:0;}
+.tree li {padding-left:20px; background:url(images/I.gif) repeat-y;}
+.tree > ul > li {padding-left:0; background:none;}
+.tree li span {display:inline-block; width:18px; height:18px; background:url(images/T.gif) no-repeat;}
+.tree li:last-child > ul > li {background:none;}
+.tree li:last-child > span {background:url(images/L.gif) no-repeat;}
+.tree li div {display:inline-block;}
+.tree-root {cursor:pointer; font-weight:bold;}
+.tree-node {cursor:pointer; margin-left:3px; vertical-align:top;}
+.tree-node-hover {text-decoration:underline; color:blue;}
+
+.tree li > span.tree-image {width:18px; height:18px; background-image:url(images/blank.gif);}
+.tree li > span.tree-image-close {width:18px; height:18px; background-image:url(images/close.gif);}
+.tree li > span.tree-image-open {width:18px; height:18px; background-image:url(images/open.gif);}
+.tree li > span.tree-image-l {width:18px; height:18px; background-image:url(images/L.gif);}
+.tree li > span.tree-image-t {width:18px; height:18px; background-image:url(images/T.gif);}
