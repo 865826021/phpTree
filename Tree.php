@@ -6,7 +6,7 @@
  * Licensed under The MIT license.
  * Created on November 1, 2011
  *
- * For more information visit: http://mohsenkhahani.ir/php-tree
+ * For more information visit: http://mohsenkhahani.ir/phpTree
  */
 
 class Tree
