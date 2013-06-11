@@ -28,13 +28,18 @@
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <title>phpTree v2.0</title>
+  <title>phpTree v2.0 Demo</title>
+  <meta name="author" content="Mohsen Khahani" />
+  <meta name="keywords" content="mohsen khahani, phpTree, interactive tree, php, javascript" />
+  <meta name="description" content="phpTree is a simple interactive tree written in PHP/JavaScript." />
   <link rel="stylesheet" type="text/css" href="tree.css" media="screen" />
   <script type="text/javascript" src="tree.js"></script>
 </head>
 <style type="text/css">
-  table {margin:100px auto;}
-  td {vertical-align:top; border:1px solid silver; padding:10px;}
+  table {margin:100px auto 0 auto;}
+  td {width:300px; vertical-align:top; border:1px solid silver; padding:10px;}
+  #about {margin-top:20px; font:10px tahoma; line-height:1.6; color:#555; text-align:center;}
+  #about a {text-decoration:none; border-bottom:1px dotted;}
 </style>
 <body>
   <table>
@@ -44,6 +49,10 @@
       <td><div class="tree" id="tree2"><?php echo $tree2->get(); ?></div></td>
     </tr>
   </table>
+  <div id="about">
+    <div><strong><a href="http://mohsenkhahani.ir/phpTree">phpTree</a></strong> v2.0</div>
+    <div>&copy; 2011-2013 <a href="http://mohsenkhahani.ir/" target="_blank">Mohsen Khahani</a></div>
+  </div>
 </body>
 <script>
     Tree('tree2');
