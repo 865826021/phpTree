@@ -17,12 +17,8 @@
         array(15, 13, '3.1.1.2.1'),
     );
 
-    function getNode($data, $children) {
-        $node = '<li><div>' . $data[2] . '</div>';
-        if (!empty($children)) {
-            $node .= '<ul>' . $children . '</ul>';
-        }
-        $node .= '</li>';
+    function getNode($data) {
+        $node = '<strong id="' . $data[1] . '">' . $data[2] . '</strong>';
         return $node;
     }
 
@@ -33,19 +29,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
   <title>phpTree v2.0</title>
+  <link rel="stylesheet" type="text/css" href="tree.css" media="screen" />
+  <script type="text/javascript" src="tree.js"></script>
 </head>
 <style type="text/css">
   table {margin:100px auto;}
-  td {border:1px solid silver; padding:10px;}
+  td {vertical-align:top; border:1px solid silver; padding:10px;}
 </style>
 <body>
   <table>
-    <tr><th>Tree without callback function</th><th>Tree using callback function</th></tr>
+    <tr><th>Static Tree</th><th>Interactive Tree (using js)</th></tr>
     <tr>
-      <td><ul class="tree"><?php echo $tree1->get(); ?></ul></td>
-      <td><ul class="tree"><?php echo $tree2->get(); ?></ul></td>
+      <td><div id="tree1"><?php echo $tree1->get(); ?></div></td>
+      <td><div class="tree" id="tree2"><?php echo $tree2->get(); ?></div></td>
     </tr>
-
   </table>
 </body>
+<script>
+    Tree('tree2');
+</script>
+
 </html>
