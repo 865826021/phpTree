@@ -16,10 +16,10 @@ function Tree(target, className) {
     target = document.getElementById(target);
     var nodes = target.getElementsByTagName('LI');
     for (var i = 0; i < nodes.length; i++) {
-        var childNodes = nodes[i].childNodes,
-            image = childNodes[0],
-            node  = childNodes[1],
-            child = childNodes[2];
+        var children = nodes[i].children,
+            image = children[0],
+            node  = children[1],
+            child = children[2];
         node.className = className + '-node';
         //return;
         if (child != null) {
@@ -31,11 +31,11 @@ function Tree(target, className) {
                     node;
                 child.style.display = display? 'block' : 'none';
                 if (display) {
-                    node = this.nextSibling.childNodes[0];
+                    node = this.nextSibling.children[0];
                     this.className = className + '-image-open';
                 } else {
                     try {
-                        node = this.parentNode.parentNode.previousSibling.childNodes[0];
+                        node = this.parentNode.parentNode.previousSibling.children[0];
                     } catch(err) {
                         cookie.set('');
                     };
