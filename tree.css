@@ -14,8 +14,8 @@
 .tree-node {cursor:pointer; margin-left:3px; vertical-align:top;}
 .tree-node-hover {text-decoration:underline; color:blue;}
 
-.tree li > span.tree-image {width:18px; height:18px; background-image:url(images/blank.gif);}
-.tree li > span.tree-image-close {width:18px; height:18px; background-image:url(images/close.gif);}
-.tree li > span.tree-image-open {width:18px; height:18px; background-image:url(images/open.gif);}
-.tree li > span.tree-image-l {width:18px; height:18px; background-image:url(images/L.gif);}
-.tree li > span.tree-image-t {width:18px; height:18px; background-image:url(images/T.gif);}
+.tree li > span.tree-image {background-image:url(images/blank.gif);}
+.tree li > span.tree-image-close {background-image:url(images/close.gif);}
+.tree li > span.tree-image-open {background-image:url(images/open.gif);}
+.tree li > span.tree-image-l {background-image:url(images/L.gif);}
+.tree li > span.tree-image-t {background-image:url(images/T.gif);}
