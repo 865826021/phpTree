@@ -21,7 +21,6 @@ function Tree(target, className) {
             node  = children[1],
             child = children[2];
         node.className = className + '-node';
-        //return;
         if (child != null) {
             child.style.display = 'none';
             image.className = className + '-image-close';

@@ -54,7 +54,7 @@ class Tree
     }
 
     /**
-     * Builds sub tree from givven nodes data
+     * Builds sub tree from given nodes data
      *
      * @access  private
      * @param   array   $data   Nodes data
