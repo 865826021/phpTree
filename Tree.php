@@ -1,7 +1,7 @@
 <?php
 /**
  * phpTree - A PHP class to build XHTML tree from array of data
- * © 2011-2013 Mohsen Khahani
+ * Copyright 2011-2013 Mohsen Khahani
  *
  * Licensed under The MIT license.
  * Created on November 1, 2011
