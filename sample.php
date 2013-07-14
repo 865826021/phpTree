@@ -18,7 +18,7 @@
     );
 
     function getNode($data) {
-        $node = '<strong id="' . $data[1] . '">' . $data[2] . '</strong>';
+        $node = '<a id="' . $data[1] . '">' . $data[2] . '</a>';
         return $node;
     }
 
@@ -26,7 +26,8 @@
     $tree1 = new Tree($treeData);
     $tree2 = new Tree($treeData, 'getNode');
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html>
 <head>
   <title>phpTree v2.0 Demo</title>
   <meta name="author" content="Mohsen Khahani" />
@@ -43,18 +44,20 @@
 </style>
 <body>
   <table>
-    <tr><th>Static Tree</th><th>Interactive Tree (using js)</th></tr>
+    <tr><th>Tree #1</th><th>Tree #2</th></tr>
     <tr>
-      <td><div id="tree1"><?php echo $tree1->get(); ?></div></td>
-      <td><div class="tree" id="tree2"><?php echo $tree2->get(); ?></div></td>
+      <td><div id="tree1" class="tree"><?php echo $tree1->get(); ?></div></td>
+      <td><div id="tree2" class="tree"><?php echo $tree2->get(); ?></div></td>
     </tr>
   </table>
   <div id="about">
     <div><strong><a href="http://mohsenkhahani.ir/phpTree">phpTree</a></strong> v2.0</div>
-    <div>&copy; 2011-2013 <a href="http://mohsenkhahani.ir/" target="_blank">Mohsen Khahani</a></div>
+    <div>&copy;2011-2013 <a href="http://mohsenkhahani.ir/" target="_blank">Mohsen Khahani</a></div>
   </div>
 </body>
+<script src="tree.js"></script>
 <script>
-    Tree('tree2');
+    new Tree('tree1');
+    new Tree('tree2');
 </script>
 </html>

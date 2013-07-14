@@ -1,21 +1,25 @@
 /**
- *  Tree v1.0 CSS
+ *  Tree CSS style v2.0
  *  http://mohsenkhahani.ir/phpTree
  */
 
-.tree ul {list-style:none; margin:0; padding:0;}
-.tree li {padding-left:20px; background:url(images/I.gif) repeat-y;}
-.tree > ul > li {padding-left:0; background:none;}
-.tree li span {display:inline-block; width:18px; height:18px; background:url(images/T.gif) no-repeat;}
-.tree li:last-child > ul > li {background:none;}
-.tree li:last-child > span {background:url(images/L.gif) no-repeat;}
-.tree li div {display:inline-block;}
-.tree-root {cursor:pointer; font-weight:bold;}
-.tree-node {cursor:pointer; margin-left:3px; vertical-align:top;}
-.tree-node-hover {text-decoration:underline; color:blue;}
+.tree {line-height:12px;}
+.tree ul {list-style:none; margin:0; padding-left:20px; background:url(images/h-line.png) repeat-y;}
+.tree > ul {background:none;}
+.tree .last > ul {background:none;}
+.tree span {display:inline-block; width:18px; height:18px; vertical-align:middle;}
+.tree span {background:url(images/states.png) no-repeat;}
+.tree span.close {background-position:0 -18px;}
+.tree span.open {background-position:0 -36px;}
+.tree .first > span {background-position:-36px 0;}
+.tree .last > span {background-position:-18px 0;}
+.tree .first.last > span {background-position:0 -54px;}
+.tree .first > span.close {background-position:-36px -18px;}
+.tree .first > span.open {background-position:-36px -36px;}
+.tree .last > span.close {background-position:-18px -18px;}
+.tree .last > span.open {background-position:-18px -36px;}
+.tree .first.last > span.close {background-position:-54px -18px;}
+.tree .first.last > span.open {background-position:-54px -36px;}
+.tree .node {display:inline-block;}
 
-.tree li > span.tree-image {background-image:url(images/blank.gif);}
-.tree li > span.tree-image-close {background-image:url(images/close.gif);}
-.tree li > span.tree-image-open {background-image:url(images/open.gif);}
-.tree li > span.tree-image-l {background-image:url(images/L.gif);}
-.tree li > span.tree-image-t {background-image:url(images/T.gif);}
+#tree1 li div {display:inline-block;}

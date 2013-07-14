@@ -1,14 +1,18 @@
 <?php
 /**
- * phpTree - A PHP class to build XHTML tree from array of data
- * Copyright 2011-2013 Mohsen Khahani
+ * phpTree, A XHTML tree generator
  *
- * Licensed under The MIT license.
- * Created on November 1, 2011
- *
- * For more information visit: http://mohsenkhahani.ir/phpTree
+ * @author      Mohsen Khahani <mkhahani@gmail.com>
+ * @copyright   2011-2013 Mohsen Khahani
+ * @license     MIT
+ * @version     2.0
+ * @created     November 1, 2011
+ * @url         http://mohsenkhahani.ir/phpTree
  */
 
+/**
+ * Tree base class
+ */
 class Tree
 {
     /**
