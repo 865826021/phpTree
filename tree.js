@@ -88,8 +88,10 @@ Tree.prototype.loadTree = function () {
         openNodes = openNodes.split(',');
         for (i = 0; i < openNodes.length; i++) {
             var node = this.nodes[openNodes[i]];
-            node.children[0].className = 'open';
-            node.children[2].style.display = '';
+            try {
+                node.children[2].style.display = '';
+                node.children[0].className = 'open';
+            } catch(err) {}
         }
     }
 }
