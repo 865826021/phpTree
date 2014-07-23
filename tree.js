@@ -2,9 +2,9 @@
  * XHTML tree manipulation script
  *
  * @author      Mohsen Khahani <mkhahani@gmail.com>
- * @copyright   2011-2013 Mohsen Khahani
+ * @copyright   2011-2014 Mohsen Khahani
  * @license     MIT
- * @version     2.0
+ * @version     2.1
  * @created     November 1, 2011
  * @url         http://mohsenkhahani.ir/phpTree
  */
@@ -27,18 +27,18 @@ function Tree(target) {
         i;
     nodes[0].className = 'first';
     for (i = 0; i < nodes.length; i++) {
-        var parts = nodes[i].children,
-            image = parts[0],
-            node  = parts[1],
-            child = parts[2];
+        var elements = nodes[i].children,
+            toggler = elements[0],
+            node = elements[1],
+            child = elements[2];
         node.className = 'node';
-        if (!nodes[i].nextSibling) {
+        if (!nodes[i].nextElement()) {
             nodes[i].className = 'last';
         }
         if (child) {
             child.style.display = 'none';
-            image.className = 'close';
-            image.onclick = this.toggleNode.bind(this);
+            toggler.className = 'close';
+            toggler.onclick = this.toggleNode.bind(this);
         }
     }
     this.nodes = nodes;
@@ -50,15 +50,15 @@ function Tree(target) {
  */
 Tree.prototype.toggleNode = function (e) {
     var e = e || event,
-        image = e.srcElement || e.target,
-        child = image.nextSibling.nextSibling,
+        toggler = e.srcElement || e.target,
+        child = toggler.nextElement().nextElement(),
         hidden = (child.style.display === 'none');
     if (hidden) {
         child.style.display = '';
-        image.className = 'open';
+        toggler.className = 'open';
     } else {
         child.style.display = 'none';
-        image.className = 'close';
+        toggler.className = 'close';
     }
     this.saveTree();
 }
@@ -110,6 +110,14 @@ function getCookie(name) {
         if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
+}
+
+Element.prototype.nextElement = function () {
+    var node = this;
+    do {
+        node = node.nextSibling;
+    } while (node !== null && node.nodeType !== 1)
+    return node;
 }
 
 // Simulates bind() for IE<9

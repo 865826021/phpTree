@@ -17,19 +17,24 @@
         array(15, 13, '3.1.1.2.1'),
     );
 
-    function getNode($data) {
-        $node = '<a id="' . $data[1] . '">' . $data[2] . '</a>';
-        return $node;
+    function getTree($node, $childs) {
+        $tree =
+            '<li><span></span>
+             <a id="' . $node[1] . '">' . $node[2] . '</a>';
+        if ($childs) {
+            $tree .= '<ul>' . $childs . '</ul>';
+        }
+        return $tree . '</li>';
     }
 
     require_once 'Tree.php';
     $tree1 = new Tree($treeData);
-    $tree2 = new Tree($treeData, 'getNode');
+    $tree2 = new Tree($treeData, 'getTree');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>phpTree v2.0 Demo</title>
+  <title>phpTree v2.1 Demo</title>
   <meta name="author" content="Mohsen Khahani" />
   <meta name="keywords" content="mohsen khahani, phpTree, interactive tree, php, javascript" />
   <meta name="description" content="phpTree is a simple interactive tree written in PHP/JavaScript." />
@@ -46,13 +51,13 @@
   <table>
     <tr><th>Tree #1</th><th>Tree #2</th></tr>
     <tr>
-      <td><div id="tree1" class="tree"><?php echo $tree1->get(); ?></div></td>
-      <td><div id="tree2" class="tree"><?php echo $tree2->get(); ?></div></td>
+      <td><div id="tree1" class="tree"><ul><?php echo $tree1->get(); ?></ul></div></td>
+      <td><div id="tree2" class="tree"><ul><?php echo $tree2->get(); ?></ul></div></td>
     </tr>
   </table>
   <div id="about">
-    <div><strong><a href="http://mohsenkhahani.ir/phpTree">phpTree</a></strong> v2.0</div>
-    <div>&copy;2011-2013 <a href="http://mohsenkhahani.ir/" target="_blank">Mohsen Khahani</a></div>
+    <div><strong><a href="http://mohsenkhahani.ir/phpTree">phpTree</a></strong> v2.1</div>
+    <div>&copy;2011-2014 <a href="http://mohsenkhahani.ir/" target="_blank">Mohsen Khahani</a></div>
   </div>
 </body>
 <script src="tree.js"></script>

@@ -1,11 +1,12 @@
 <?php
 /**
- * phpTree, A XHTML tree generator
+ * phpTree
+ * Builds XHTML tree structre from array of self-joined data
  *
  * @author      Mohsen Khahani <mkhahani@gmail.com>
- * @copyright   2011-2013 Mohsen Khahani
+ * @copyright   2011-2014 Mohsen Khahani
  * @license     MIT
- * @version     2.0
+ * @version     2.1
  * @created     November 1, 2011
  * @url         http://mohsenkhahani.ir/phpTree
  */
@@ -21,15 +22,15 @@ class Tree
      * @var     string
      * @access  public
      */
-    var $Version = '2.0';
+    var $Version = '2.1';
 
     /**
      * Class constructor
      *
      * @access  public
      * @param   array   $data       Tree data [id, parent, text]
-     * @param   mixed   $callback   Callback function to retrieve a node
-     *                              String function name or Array(class name, function name)
+     * @param   mixed   $callback   Callback function to build a node
+     *                              can be a function name or Array(class/object, function name)
      *                              For more info see PHP's call_user_func()
      * @return  void
      */
@@ -74,12 +75,15 @@ class Tree
                 $childNodes = $this->buildNodes($children);
             }
 
-            $node = ($this->callback)? call_user_func($this->callback, $row) : $row[2];
-            $tree .= "<li><span></span><div>$node</div>";
-            if (!empty($childNodes)) {
-                $tree .= '<ul>' . $childNodes . '</ul>';
+            if ($this->callback) {
+                $tree .= call_user_func($this->callback, $row, $childNodes);
+            } else {
+                $tree .= '<li><span></span><div>' . $row[2] . '</div>';
+                if ($childNodes) {
+                    $tree .= '<ul>' . $childNodes . '</ul>';
+                }
+                $tree .= '</li>';
             }
-            $tree .= '</li>';
         }
         return $tree;
     }
@@ -93,6 +97,6 @@ class Tree
     function get()
     {
         $rootNodes = $this->getChildren(0);
-        return '<ul>' . $this->buildNodes($rootNodes) . '</ul>';
+        return $this->buildNodes($rootNodes);
     }
 }
